@@ -43,7 +43,7 @@ app.get("/api", (req, res) => {
 });
 
 app.use("/api/counties", require("./routes/api/counties.js"));
-
+app.use("/api/senatedistricts", require("./routes/api/senatedistricts.js"));
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX requests
 app.get("/*", function (req, res) {

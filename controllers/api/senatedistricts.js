@@ -1,4 +1,4 @@
-const SenateDistrict = require("../../models/senateDistrictSchema");
+const SenateDistrict = require("../../models/SenateDistrict");
 
 async function index(req, res) {
   try {

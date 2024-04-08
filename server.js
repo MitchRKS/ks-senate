@@ -18,6 +18,16 @@ app.use(express.json());
 app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
 app.use(express.static(path.join(__dirname, "build")));
 
+app.get("/counties", async (req, res) => {
+  try {
+    const data = await County.find({});
+    res.render("CountyIndex", { data });
+  } catch (error) {
+    console.error("error fetching data", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
 app.use((req, res, next) => {
   res.locals.data = {};
   next();
@@ -28,6 +38,10 @@ app.use((req, res, next) => {
 // API Route
 app.get("/api", (req, res) => {
   res.json({ message: "The API is Alive!" });
+});
+
+app.get("/api/counties", (req, res) => {
+  res.json({ message: "The counties API is alive." });
 });
 
 // The following "catch all" route (note the *) is necessary

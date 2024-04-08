@@ -5,6 +5,8 @@ const express = require("express");
 const path = require("path");
 const favicon = require("serve-favicon");
 const logger = require("morgan");
+const County = require("./models/county");
+const SenateDistrict = require("./models/senateDistrict");
 
 const app = express();
 
@@ -21,10 +23,20 @@ app.use(express.static(path.join(__dirname, "build")));
 app.get("/counties", async (req, res) => {
   try {
     const data = await County.find({});
-    res.render("CountyIndex", { data });
+    res.json(data);
   } catch (error) {
     console.error("error fetching data", error);
     res.status(500).send("Internal Server Error");
+  }
+});
+
+app.get("/senatedistricts", async (req, res) => {
+  try {
+    const districts = await SenateDistrict.find({});
+    res.json(districts);
+  } catch (error) {
+    console.error("error fetching data", error);
+    res.status(500).send("internal server error");
   }
 });
 

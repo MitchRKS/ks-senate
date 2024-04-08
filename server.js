@@ -6,7 +6,7 @@ const path = require("path");
 const favicon = require("serve-favicon");
 const logger = require("morgan");
 const County = require("./models/county");
-const SenateDistrict = require("./models/senateDistrict");
+const SenateDistrict = require("./models/SenateDistrict");
 
 const app = express();
 

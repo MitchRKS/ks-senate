@@ -20,30 +20,20 @@ app.use(express.json());
 app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
 app.use(express.static(path.join(__dirname, "build")));
 
-app.get("/counties", async (req, res) => {
-  try {
-    const data = await County.find({});
-    res.json(data);
-  } catch (error) {
-    console.error("error fetching data", error);
-    res.status(500).send("Internal Server Error");
-  }
-});
+// app.get("/senatedistricts", async (req, res) => {
+//   try {
+//     const districts = await SenateDistrict.find({});
+//     res.json(districts);
+//   } catch (error) {
+//     console.error("error fetching data", error);
+//     res.status(500).send("internal server error");
+//   }
+// });
 
-app.get("/senatedistricts", async (req, res) => {
-  try {
-    const districts = await SenateDistrict.find({});
-    res.json(districts);
-  } catch (error) {
-    console.error("error fetching data", error);
-    res.status(500).send("internal server error");
-  }
-});
-
-app.use((req, res, next) => {
-  res.locals.data = {};
-  next();
-});
+// app.use((req, res, next) => {
+//   res.locals.data = {};
+//   next();
+// });
 
 // Controllers go here
 
@@ -52,9 +42,7 @@ app.get("/api", (req, res) => {
   res.json({ message: "The API is Alive!" });
 });
 
-app.get("/api/counties", (req, res) => {
-  res.json({ message: "The counties API is alive." });
-});
+app.use("/api/counties", require("./routes/api/counties.js"));
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX requests

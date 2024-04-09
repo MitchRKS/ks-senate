@@ -10,12 +10,13 @@ async function index(req, res) {
 }
 
 async function show(req, res) {
-  const { _id } = req.params; // Destructure _id from params
-  const county = await County.findById(_id).exec(); // Use _id instead of id
-  if (!county) {
-    return res.status(404).json({ message: "County not found" });
-  } else {
-    res.json(county);
+  const { id } = req.params;
+
+  try {
+    const query = await County.findOne({ _id: id });
+    return res.json(query);
+  } catch (error) {
+    res.status(404).json({ message: "county not found" });
   }
 }
 

@@ -7,6 +7,6 @@ const countyController = require("../../controllers/api/counties");
 router.get("/", countyController.index);
 
 // GET a single county by ID
-router.get("/allen", countyController.show);
+router.get("/:id", countyController.show);
 
 module.exports = router;

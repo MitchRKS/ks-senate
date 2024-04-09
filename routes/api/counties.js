@@ -1,10 +1,12 @@
+// routes/countyRoutes.js
 const express = require("express");
 const router = express.Router();
-const countiesController = require("../../controllers/api/counties.js");
+const countyController = require("../../controllers/api/counties");
 
-// GET /api/counties
-router.get("/", countiesController.index);
+// GET all counties
+router.get("/", countyController.index);
 
-// GET /api/counties/id
-router.get("/_id", countiesController.show);
+// GET a single county by ID
+router.get("/allen", countyController.show);
+
 module.exports = router;

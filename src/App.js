@@ -12,9 +12,8 @@ function App() {
   };
   return (
     <div className="App">
-      {toggle ? <CountyList /> : <SenateDistrictList />}
-      <div className="Heading">Kansans First Election Datacenter</div>
       <button onClick={toggleComponent}>Switch View</button>
+      {toggle ? <CountyList /> : <SenateDistrictList />}
     </div>
   );
 }

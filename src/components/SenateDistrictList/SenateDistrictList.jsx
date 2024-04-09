@@ -33,9 +33,7 @@ const SenateDistrictList = () => {
     <div className="card-container">
       {senateDistricts.map((item) => (
         <div key={item._id} className="card">
-          <h2>
-            <a href={`/senatedistricts/${item._id}`}>{item._id}</a>
-          </h2>
+          <h2>{item._id}</h2>
           <ul>
             <li>
               <strong>Incumbent:</strong> {item.Incumbent}

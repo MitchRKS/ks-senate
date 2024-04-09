@@ -1,5 +1,13 @@
+* {
+  border: solid 1px black;
+}
+
 .App {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.Heading {
+  text-align: center;
 }

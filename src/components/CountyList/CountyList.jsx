@@ -34,9 +34,7 @@ const CountyList = () => {
     <div className="card-container">
       {counties.map((item) => (
         <div key={item._id} className="card">
-          <h2>
-            <a href={`/counties/${item._id}`}>{item._id}</a>
-          </h2>
+          <h2>{item._id}</h2>
           <ul>
             <li>
               <strong>Registered Republicans:</strong> {item.GOP}

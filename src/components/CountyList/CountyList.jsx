@@ -1,15 +1,15 @@
 // CountyList.js
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axiosInstance from "../../utilities/axiosInstance";
 import "./CountyList.css";
 const CountyList = () => {
   const [counties, setCounties] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const baseURL = "https://ks-senate-adc0dd932d6a.herokuapp.com/"; // Replace 'your-mongodb-cluster-url' with the actual URL of your MongoDB Atlas cluster
+
   useEffect(() => {
     // Fetch data from API when component mounts
-    axios
+    axiosInstance
       .get(`${baseURL}/api/counties`)
       .then((response) => {
         setCounties(response.data);

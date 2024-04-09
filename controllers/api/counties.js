@@ -4,6 +4,7 @@ async function index(req, res) {
   try {
     const counties = await County.find({}).exec();
     res.status(200).json(counties);
+    counties.sort((a, b) => a._id.localeCompare(b._id));
   } catch (error) {
     res.status(400).json({ message: error.message });
   }

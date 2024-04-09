@@ -6,5 +6,5 @@ const countiesController = require("../../controllers/api/counties.js");
 router.get("/", countiesController.index);
 
 // GET /api/counties/id
-router.get(`/${_id}`, countiesController.show);
+router.get("/_id", countiesController.show);
 module.exports = router;

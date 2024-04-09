@@ -10,13 +10,18 @@ async function index(req, res) {
 }
 
 async function show(req, res) {
-  try {
-    const county = County.findById(req.params._id);
-    res.status(200).json(county);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
+  const { _id } = req.params;
+  const county = County.findById(id);
+  if (!county) {
+    return res.status(404).json({ message: "county not found" });
+  } else {
+    res.json(county);
   }
 }
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
 
 module.exports = {
   index,

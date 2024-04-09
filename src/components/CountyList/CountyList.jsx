@@ -6,11 +6,11 @@ const CountyList = () => {
   const [counties, setCounties] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const baseURL = "https://ks-senate-adc0dd932d6a.herokuapp.com/"; // Replace 'your-mongodb-cluster-url' with the actual URL of your MongoDB Atlas cluster
   useEffect(() => {
     // Fetch data from API when component mounts
     axios
-      .get("http://localhost:3001/api/counties")
+      .get(`${baseURL}/api/counties`)
       .then((response) => {
         setCounties(response.data);
         console.log(response.data);

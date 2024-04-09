@@ -5,11 +5,11 @@ const SenateDistrictList = () => {
   const [senateDistricts, setSenateDistricts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const baseURL = "https://ks-senate-adc0dd932d6a.herokuapp.com/"; // Replace 'your-mongodb-cluster-url' with the actual URL of your MongoDB Atlas cluster
   useEffect(() => {
     // Fetch data from API when component mounts
     axios
-      .get("http://localhost:3001/api/senatedistricts")
+      .get(`${baseURL}/api/senatedistricts`)
       .then((response) => {
         setSenateDistricts(response.data);
 

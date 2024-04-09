@@ -1,6 +1,6 @@
 // CountyList.js
 import React, { useState, useEffect } from "react";
-import axiosInstance from "../../utilities/axiosInstance";
+import axios from "axios";
 import "./CountyList.css";
 const CountyList = () => {
   const [counties, setCounties] = useState([]);
@@ -9,8 +9,8 @@ const CountyList = () => {
 
   useEffect(() => {
     // Fetch data from API when component mounts
-    axiosInstance
-      .get(`${baseURL}/api/counties`)
+    axios
+      .get(`http://localhost:3001/api/counties`)
       .then((response) => {
         setCounties(response.data);
         console.log(response.data);

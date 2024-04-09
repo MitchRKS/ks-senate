@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import axiosInstance from "../../utilities/axiosInstance";
+import axios from "axios";
 import "./SenateDistrictList.css";
-import axiosInstance from "../../utilities/axiosInstance";
+
 const SenateDistrictList = () => {
   const [senateDistricts, setSenateDistricts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -9,8 +9,8 @@ const SenateDistrictList = () => {
 
   useEffect(() => {
     // Fetch data from API when component mounts
-    axiosInstance
-      .get(`${baseURL}/api/senatedistricts`)
+    axios
+      .get(`http://localhost:3001/api/senatedistricts`)
       .then((response) => {
         setSenateDistricts(response.data);
 
